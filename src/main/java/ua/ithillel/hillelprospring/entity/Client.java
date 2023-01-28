@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class Client {
     private String name;
-    private Integer id ;
+    private Integer id;
     private Integer age;
 
 }

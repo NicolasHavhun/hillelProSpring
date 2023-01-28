@@ -12,7 +12,7 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
-    public List<Client> getAll(){
+    public List<Client> getAll() {
         return clientService.getAll();
     }
 
