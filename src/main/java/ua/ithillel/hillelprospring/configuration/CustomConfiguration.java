@@ -11,13 +11,15 @@ public class CustomConfiguration {
     @Value("${queue.name}")
     private String queueName;
 
+
+    @Value("${dbUsername}")
+    private String clientName;
+
     @Bean
     public String getQueueName() {
         return queueName;
     }
 
-    @Value("${DB_USERNAME}")
-    private String clientName;
 
     @Bean
     public String getClientName() {
@@ -34,6 +36,6 @@ public class CustomConfiguration {
     @Bean
     @Scope("prototype")
     public Client getRandomClient() {
-        return new Client("Paul", 1, 25);
+        return new Client("Paul", 1, 25, "paul@gmail.com", 80975674532L);
     }
 }

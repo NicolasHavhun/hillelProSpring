@@ -12,6 +12,8 @@ import lombok.ToString;
 public class Client {
     private String name;
     private Integer id;
-    private Integer age;
+    private int age;
+    private String email;
+    private long phone;
 
 }

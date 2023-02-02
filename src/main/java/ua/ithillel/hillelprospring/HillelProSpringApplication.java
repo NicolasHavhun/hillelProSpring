@@ -14,6 +14,8 @@ import java.util.List;
 public class HillelProSpringApplication {
 
     public static void main(String[] args) {
+        SpringApplication.run(HillelProSpringApplication.class, args);
+
 //        2. @Configuration & @Bean
 
 //        SpringApplication.run(HillelProSpringApplication.class, args);
@@ -37,10 +39,10 @@ public class HillelProSpringApplication {
 
 //        5.
 
-        ConfigurableApplicationContext applicationContext = SpringApplication.run(HillelProSpringApplication.class, args);
-        ClientController clientController = applicationContext.getBean(ClientController.class);
-        List<Client> allClients = clientController.getAll();
-        System.out.println(allClients);
+//        ConfigurableApplicationContext applicationContext = SpringApplication.run(HillelProSpringApplication.class, args);
+//        ClientController clientController = applicationContext.getBean(ClientController.class);
+//        List<Client> allClients = clientController.getAll();
+//        System.out.println(allClients);
 
     }
 
