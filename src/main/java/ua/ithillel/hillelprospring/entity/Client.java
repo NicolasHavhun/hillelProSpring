@@ -1,19 +1,23 @@
 package ua.ithillel.hillelprospring.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
+@Entity
+@Table(name = "clients")
 public class Client {
-    private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String name;
     private int age;
     private String email;
     private long phone;
+
 
 }

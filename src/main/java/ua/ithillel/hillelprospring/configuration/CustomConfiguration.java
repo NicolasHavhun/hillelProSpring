@@ -36,6 +36,6 @@ public class CustomConfiguration {
     @Bean
     @Scope("prototype")
     public Client getRandomClient() {
-        return new Client("Paul", 1, 25, "paul@gmail.com", 80975674532L);
+        return new Client(1,"Paul", 25, "paul@gmail.com", 80975674532L);
     }
 }

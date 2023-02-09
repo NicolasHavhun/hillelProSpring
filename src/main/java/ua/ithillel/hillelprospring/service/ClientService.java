@@ -10,7 +10,9 @@ import java.util.List;
 @Service
 public class ClientService {
     @Autowired
-    private static ClientRepository clientRepository;
+//    private static FakeClientRepository clientRepository;
+
+    private final ClientRepository clientRepository;
 
     public ClientService(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
@@ -18,31 +20,39 @@ public class ClientService {
 
 
     public List<Client> getAll() {
-        return clientRepository.getAll();
+        return clientRepository.findAll();
     }
 
-    public static Client getById(Integer id) {
-        return clientRepository.getById(id);
+    public Client getById(Integer id) {
+        return clientRepository.findById(id).orElseThrow();
     }
+
+    public Client returnByEmailAndPhone(String email, long phone) {
+        return clientRepository.getClientByEmailAndPhone(email, phone);
+    }
+
+    public Client returnByThreeParam(String name, long phone, int age) {
+        return clientRepository.getClientByNameOrPhoneOrAge(name, phone, age);
+    }
+
 
     public Client save(Client client) {
         return clientRepository.save(client);
     }
 
-    public Client update(Integer id, Client client) {
-        return clientRepository.update(id, client);
+    public Client update(Client client) {
+        return clientRepository.save(client);
     }
+
+    public Integer updateNameById(String name, Integer id) {
+        return clientRepository.update(name, id);
+    }
+
 
     public Integer delete(Integer id) {
-        return clientRepository.delete(id);
+        clientRepository.deleteById(id);
+        return id;
     }
 
-    public Client returnByEmailAndPhone(String email, long phone) {
-        return clientRepository.returnByEmailAndPhone(email, phone);
-    }
-
-    public static Client returnByThreeParam(String name, String phone, int age) {
-        return ClientRepository.returnByThreeParam(name, phone, age);
-    }
 
 }
